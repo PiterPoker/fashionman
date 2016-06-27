@@ -2,8 +2,7 @@
 {
     public interface IClientService
     {
-        void EditClient(ApplicationUser eUsers);
-        void AddClient(ApplicationUser aUsers);
+        void EditUser(ApplicationUser eUsers);
         ApplicationUser Get();
     }
 }

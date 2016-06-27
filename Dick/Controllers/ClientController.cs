@@ -1,10 +1,9 @@
 ﻿using System.Web.Mvc;
-using Dick.Models;
 using Dick.Models.Client;
 
 namespace Dick.Controllers
 {
-    [Authorize(Roles = "user")]
+    [Authorize]
     public class ClientController : Controller
     {
         private readonly IClientService _clientService;
@@ -18,22 +17,6 @@ namespace Dick.Controllers
         {
             return View(_clientService.Get());
         }
-
-        [HttpGet]
-        // GET: Client
-        public ActionResult AddClient()
-        {
-            return View();
-        }
-
-        public ActionResult AddClient(ApplicationUser addClient)
-        {
-            if (ModelState.IsValid)
-            {
-                _clientService.AddClient(addClient);
-                return RedirectToAction("AddClient");
-            }
-            return View(addClient);
-        }
+        //добавить изменение данных клиента
     }
 }

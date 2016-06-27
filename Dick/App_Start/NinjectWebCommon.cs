@@ -3,7 +3,6 @@ using System.Web;
 using Dick.App_Start;
 using Dick.Models.Client;
 using Dick.Models.DAO;
-using Dick.Models.DAO.Client;
 using Dick.Models.DAO.Cloth;
 using Dick.Models.DAO.ClothingPattern;
 using Dick.Models.DAO.Cutter;
@@ -69,12 +68,11 @@ namespace Dick.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IClientService>().To<ClientService>();
-            kernel.Bind<IClientDao>().To<ClientDao>();
+            kernel.Bind<IUserDao>().To<UserDao>();
             kernel.Bind<IClothDao>().To<ClothDao>();
             kernel.Bind<IClothingPatterDao>().To<ClothingPatterDao>();
             kernel.Bind<ICutterDao>().To<CutterDao>();
             kernel.Bind<IOrderDao>().To<OrderDao>();
-            kernel.Bind<IUserDao>().To<UserDao>();
         }
     }
 }

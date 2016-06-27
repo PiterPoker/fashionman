@@ -48,6 +48,10 @@
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="dotMemory.Unit, Version=103.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.DotMemoryUnit.2.3.20160517.113140\Lib\dotMemory.Unit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -231,8 +235,6 @@
     <Compile Include="Models\AppDbInitializer.cs" />
     <Compile Include="Models\Client\ClientService.cs" />
     <Compile Include="Models\Client\IClientService.cs" />
-    <Compile Include="Models\DAO\Client\ClientDao.cs" />
-    <Compile Include="Models\DAO\Client\IClientDao.cs" />
     <Compile Include="Models\DAO\ClothingPattern\ClothingPatterDao.cs" />
     <Compile Include="Models\DAO\ClothingPattern\IClothingPatterDao.cs" />
     <Compile Include="Models\DAO\Cloth\ClothDao.cs" />
@@ -329,7 +331,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Client\AddClient.cshtml" />
     <Content Include="Views\Client\Client.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CreateCloth.cshtml" />
