@@ -349,7 +349,7 @@ namespace Dick.Controllers
                         new ExternalLoginConfirmationViewModel {Email = loginInfo.Email});
             }
         }
-
+        
         //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]

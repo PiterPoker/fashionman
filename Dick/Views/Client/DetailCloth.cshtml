@@ -1,0 +1,62 @@
+﻿@using Dick.Models.Entities
+@model Dick.Models.Home.FavoriteClothViewModel
+
+@{
+    ViewBag.Title = "DetailCloth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<div>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-xs-2">
+            @Html.ActionLink("Назад", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.ClothingPatterns)
+        {
+            <h2 class="text-center">@item.Name</h2>
+            <div class="single-product">
+                <div class="center-block">
+                    <img src="@Url.Action("GetClothingPatterImage", "Image", new {item.Id})" class="img-thumbnail">
+                    <div class="product-hover">
+
+
+                    </div>
+                </div>
+
+
+                <div class="product-carousel-price">
+                    @*<ins>@item.Cost</ins> @if (item.Discount != 0)
+                    {
+                        <del>@(item.Cost * item.Discount / 100)</del>
+                    }*@
+                </div>
+            </div>
+        }
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>
+<h2>Популярные ткани для этой модели</h2>
+
+@foreach (var item in Model.ClothingPatterns)
+{
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="bs-example bs-example-images" data-example-id="image-shapes">
+
+                <img src="@Url.Action("GetClothImage", "Image", new { item.Id })" class="img-thumbnail" width="140px" height="140px">
+
+                <h6></h6>
+                @Html.ActionLink("Подробнее", "DetailClothingPatern", new {id = item.Id}, new {@class = "btn btn-default"})
+            </div>
+        </div>
+    </div>
+}

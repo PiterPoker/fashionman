@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dick.Models.Entities.Cutter>
+
+@{
+    ViewBag.Title = "GetAllCutter";
+}
+
+<h2>GetAllCutter</h2>
+
+<p>
+    @Html.ActionLink("Добавления портного", "AddCutter", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MiddleName)
+        </td>
+        <td>
+ 
+            @Html.ActionLink("Редактировать", "EditCutter", new { id = item.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Удалить", "DeleteCutter", new { id = item.Id }, new { @class = "btn btn-default" })
+      
+        </td>
+    </tr>
+}
+
+</table>

@@ -226,15 +226,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606241556526_DataMigration.cs" />
-    <Compile Include="Migrations\201606241556526_DataMigration.Designer.cs">
-      <DependentUpon>201606241556526_DataMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201606291638316_DateMigration.cs" />
+    <Compile Include="Migrations\201606291638316_DateMigration.Designer.cs">
+      <DependentUpon>201606291638316_DateMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606302124378_DataMigration.cs" />
+    <Compile Include="Migrations\201606302124378_DataMigration.Designer.cs">
+      <DependentUpon>201606302124378_DataMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admin\AdminService.cs" />
+    <Compile Include="Models\Admin\IAdminService.cs" />
     <Compile Include="Models\AppDbInitializer.cs" />
-    <Compile Include="Models\Client\ClientService.cs" />
-    <Compile Include="Models\Client\IClientService.cs" />
+    <Compile Include="Models\Client\ClientService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Client\IClientService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Models\DAO\ClothingPattern\ClothingPatterDao.cs" />
     <Compile Include="Models\DAO\ClothingPattern\IClothingPatterDao.cs" />
     <Compile Include="Models\DAO\Cloth\ClothDao.cs" />
@@ -249,6 +259,9 @@
     <Compile Include="Models\Entities\ClothingPattern.cs" />
     <Compile Include="Models\Entities\Cutter.cs" />
     <Compile Include="Models\Entities\Order.cs" />
+    <Compile Include="Models\Home\FavoriteClothViewModel.cs" />
+    <Compile Include="Models\Home\HomeViewModel.cs" />
+    <Compile Include="Models\Home\OrderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +279,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\catalog1.jpg" />
+    <Content Include="Image\catalog2.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -297,6 +312,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Image\logo.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -331,12 +347,30 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Client\Client.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CreateCloth.cshtml" />
     <Content Include="Views\Admin\Cloths.cshtml" />
-    <Content Include="Views\Client\EditClient.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\EditUser.cshtml" />
+    <Content Include="Views\Admin\DeleteCloth.cshtml" />
+    <Content Include="Views\Admin\GetAllCutter.cshtml" />
+    <Content Include="Views\Admin\AddCutter.cshtml" />
+    <Content Include="Views\Admin\Update.cshtml" />
+    <Content Include="Views\Admin\EditCutter.cshtml" />
+    <Content Include="Views\Admin\DeleteCutter.cshtml" />
+    <Content Include="Views\Admin\ClothingPatter.cshtml" />
+    <Content Include="Views\Admin\AddClothingPatter.cshtml" />
+    <Content Include="Views\Client\DetailClothingPatern.cshtml" />
+    <Content Include="Views\Admin\UpdateClothingPattern.cshtml" />
+    <Content Include="Views\Admin\DeleteClothingPattern.cshtml" />
+    <Content Include="Views\Client\LoadCloths.cshtml" />
+    <Content Include="Views\Client\AddOrder.cshtml" />
+    <Content Include="Views\Home\Catalog.cshtml" />
+    <Content Include="Views\Client\LoadClothingPatterns.cshtml" />
+    <Content Include="Views\Client\DetailCloth.cshtml" />
+    <Content Include="Views\Client\LoadOrders.cshtml" />
+    <Content Include="Views\Client\DeleteOrder.cshtml" />
+    <Content Include="Views\Admin\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Image\" />
@@ -345,8 +379,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606241556526_DataMigration.resx">
-      <DependentUpon>201606241556526_DataMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606291638316_DateMigration.resx">
+      <DependentUpon>201606291638316_DateMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606302124378_DataMigration.resx">
+      <DependentUpon>201606302124378_DataMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

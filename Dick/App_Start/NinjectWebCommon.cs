@@ -17,6 +17,8 @@ using WebActivatorEx;
 
 namespace Dick.App_Start
 {
+    using Dick.Models.Admin;
+
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -73,6 +75,7 @@ namespace Dick.App_Start
             kernel.Bind<IClothingPatterDao>().To<ClothingPatterDao>();
             kernel.Bind<ICutterDao>().To<CutterDao>();
             kernel.Bind<IOrderDao>().To<OrderDao>();
+            kernel.Bind<IAdminService>().To<AdminService>();
         }
     }
 }

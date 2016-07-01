@@ -13,7 +13,7 @@ namespace Dick.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606241556526_DataMigration"; }
+            get { return "201606302124378_DataMigration"; }
         }
         
         string IMigrationMetadata.Source

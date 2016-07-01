@@ -2,8 +2,8 @@
 {
     public interface IClientDao
     {
-        void Add(ApplicationUser Users);
-        void Edit(ApplicationUser Users);
-        void Delete(ApplicationUser Users);
+        void Add(ApplicationUser user);
+        void Edit(ApplicationUser users);
+        void Delete(ApplicationUser users);
     }
 }

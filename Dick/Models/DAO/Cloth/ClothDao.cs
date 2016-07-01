@@ -21,7 +21,7 @@ namespace Dick.Models.DAO.Cloth
             List<Entities.Cloth> cloths;
             using (var context = new ApplicationDbContext())
             {
-                cloths = context.Cloth.ToList();
+                cloths = context.Cloth.OrderBy(g=>g.Name).ToList();
             }
             return cloths;
         }
@@ -35,19 +35,30 @@ namespace Dick.Models.DAO.Cloth
             }
         }
 
-        public void Delete(Entities.Cloth cloth)
+        public void Delete(int id)
         {
             using (var context = new ApplicationDbContext())
             {
-                var deleteItem = context.Cloth.FirstOrDefault(a => a.Id == cloth.Id);
-                if (deleteItem == null)
-                    return;
-                context.Cloth.Remove(deleteItem);
+                var item = context.Cloth.Find(id);
+                if (item != null)
+                {
+                    context.Cloth.Remove(item);
+                }
                 context.SaveChanges();
             }
         }
 
         public void Edit(Entities.Cloth cloth)
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                context.Entry(cloth).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+
+        public void Update(Entities.Cloth cloth)
         {
             using (var context = new ApplicationDbContext())
             {

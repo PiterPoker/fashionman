@@ -59,6 +59,30 @@ namespace Dick.Models
         [System.ComponentModel.DataAnnotations.Compare("NewPassword",
             ErrorMessage = "Новый пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+        [Required(ErrorMessage = "Не корректно введено Имя")]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 3)]
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Не корректно введена Фамилия")]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 3)]
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Не корректно введено Отчество")]
+        [StringLength(100, ErrorMessage = "Значение {0} должно содержать не менее {2} символов.", MinimumLength = 3)]
+        [Display(Name = "Отчество")]
+        public string MiddleName { get; set; }
+
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Адрес электронной почты")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Не корректно введен номер телефона")]
+        [Display(Name = "Номер телефон")]
+        [RegularExpression(@"^([\+]?)((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,12}",
+            ErrorMessage = "Не корректно введен номер телефона")]
+        public string PhoneNumber { get; set; }
     }
 
     public class AddPhoneNumberViewModel

@@ -11,7 +11,7 @@ namespace Dick.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "О программе ателье мод";
 
             return View();
         }
@@ -20,6 +20,10 @@ namespace Dick.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Catalog()
+        {
             return View();
         }
     }

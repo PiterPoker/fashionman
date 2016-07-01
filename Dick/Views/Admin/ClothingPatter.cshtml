@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Dick.Models.Entities.ClothingPattern>
+
+@{
+    ViewBag.Title = "ClothingPatter";
+}
+
+<h2>ClothingPatter</h2>
+
+<p>
+    @Html.ActionLink("Создать модель", "AddClothingPatter", null, new { @class = "btn btn-primary" })
+</p>
+
+
+@foreach (var item in Model) {
+
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="@Url.Action("GetClothingPatterImage", "Image", new { item.Id, @class = "img-rounded" })" />
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <p>Код м: @Html.DisplayFor(modelItem => item.Code)</p>
+                    <p>Цена: @Html.DisplayFor(modelItem => item.Price) Br.</p>
+                    <p>
+                        @Html.ActionLink("Изменить", "UpdateClothingPattern", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Удалить", "DeleteClothingPattern", new { id = item.Id }, new { @class = "btn btn-default" })
+                    </p>
+                </div>
+            </div>
+        </div>
+}
+
+

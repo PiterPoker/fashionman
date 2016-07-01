@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Dick.Models.Entities.Order>
+
+@{
+    ViewBag.Title = "LoadOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Создание новго заказа", "AddOrder", null, new { @class = "btn btn-primary" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FittingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CutterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClothId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClothingPatternId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FittingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CutterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClothId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClothingPatternId)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "DeleteOrder", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-xs-2">
+            @Html.ActionLink("Назад", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>

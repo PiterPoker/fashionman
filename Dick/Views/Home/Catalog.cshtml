@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Каталог</h2>
+
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Image/catalog1.jpg" width="400" height="400" alt="...">
+            <div class="caption">
+                <h3>Ткани</h3>
+
+                <p>@Html.ActionLink("Просмотр", "LoadCloths", "Client", null, new {@class = "btn btn-danger"})</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Image/catalog2.jpg" width="400" height="400" alt="...">
+            <div class="caption">
+                <h3>Модели</h3>
+
+                <p>@Html.ActionLink("Просмотр", "LoadClothingPatterns", "Client", null, new {@class = "btn btn-danger"})</p>
+            </div>
+        </div>
+    </div>
+
+</div>

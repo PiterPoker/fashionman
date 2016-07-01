@@ -1044,7 +1044,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return document;
 	}
 
-	// Update global variables
+	// UpdateCloth global variables
 	document = doc;
 	docElem = document.documentElement;
 	documentIsHTML = !isXML( document );
@@ -3445,7 +3445,7 @@ jQuery.extend( {
 			// If resolveValues consist of only a single Deferred, just use that.
 			deferred = remaining === 1 ? subordinate : jQuery.Deferred(),
 
-			// Update function for both resolve and progress values
+			// UpdateCloth function for both resolve and progress values
 			updateFunc = function( i, contexts, values ) {
 				return function( value ) {
 					contexts[ i ] = this;
@@ -4219,7 +4219,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 			initialInUnit = initialInUnit / scale;
 			jQuery.style( elem, prop, initialInUnit + unit );
 
-		// Update scale, tolerating zero or NaN from tween.cur()
+		// UpdateCloth scale, tolerating zero or NaN from tween.cur()
 		// Break the loop if scale is unchanged or perfect, or if we've just had enough.
 		} while (
 			scale !== ( scale = currentValue() / initial ) && scale !== 1 && --maxIterations
@@ -4569,7 +4569,7 @@ jQuery.event = {
 			// If selector defined, determine special event api type, otherwise given type
 			type = ( selector ? special.delegateType : special.bindType ) || type;
 
-			// Update special based on newly reset type
+			// UpdateCloth special based on newly reset type
 			special = jQuery.event.special[ type ] || {};
 
 			// handleObj is passed to all event handlers

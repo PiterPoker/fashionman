@@ -3,11 +3,32 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>Страница пользователя</h2>
+@using (Html.BeginForm())
+{
+    <div class="container main">
+        <div class="row header">
+            <div class="col-md-4"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="col-md-12">Имя: @Model.FirstName</div>
+            <div class="col-md-12">Фамилия: @Model.LastName</div>
+            <div class="col-md-12">Отчество: @Model.MiddleName</div>
+            <div class="col-md-12">Номер телефон: @Model.PhoneNumber</div>
+            <div class="col-md-12">@Html.DisplayNameFor(model => model.Email): @Model.Email</div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-3">@Html.ActionLink("Ткань", "LoadCloths", null, new {@class = "btn btn-danger"})</div>
 
-<h2>Index</h2>
 
-@Model.Id
+            <div class="col-md-3">@Html.ActionLink("Модель", "LoadClothingPatterns", null, new {@class = "btn btn-danger"})</div>
 
-@Model.Email
 
-@Model.PhoneNumber
+            <div class="col-md-2">@Html.ActionLink("Заказы", "LoadOrders", null, new {@class = "btn btn-danger"})</div>
+        </div>
+
+        <div class="row footer">
+            <div class="col-md-12"></div>
+        </div>
+    </div>
+}

@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace Dick.Models.DAO.ClothingPattern
@@ -14,23 +15,47 @@ namespace Dick.Models.DAO.ClothingPattern
             }
         }
 
-        public void Delete(Entities.ClothingPattern clothingpatter)
+        public void Delete(int id)
         {
             using (var context = new ApplicationDbContext())
             {
-                var deleteItem = context.ClothingPattern.FirstOrDefault(a => a.Id == clothingpatter.Id);
-                if (deleteItem == null)
-                    return;
-                context.ClothingPattern.Remove(deleteItem);
+                var item = context.ClothingPattern.Find(id);
+                if (item != null)
+                {
+                    context.ClothingPattern.Remove(item);
+                }
+
                 context.SaveChanges();
             }
         }
 
-        public void Edit(Entities.ClothingPattern clothingpatter)
+        public Entities.ClothingPattern Load(int id)
+        {
+            Entities.ClothingPattern clothingPattern;
+            using (var context = new ApplicationDbContext())
+            {
+                clothingPattern = context.ClothingPattern.FirstOrDefault(c => c.Id == id);
+            }
+
+            return clothingPattern;
+        }
+
+        public List<Entities.ClothingPattern> Load()
+        {
+            List<Entities.ClothingPattern> clothingPatterns;
+            using (var context = new ApplicationDbContext())
+            {
+                clothingPatterns = context.ClothingPattern.OrderBy(g => g.Name).ToList();
+            }
+
+            return clothingPatterns;
+        }
+
+        public void Update(Entities.ClothingPattern clothingPatterns)
         {
             using (var context = new ApplicationDbContext())
             {
-                context.Entry(clothingpatter).State = EntityState.Modified;
+                context.Entry(clothingPatterns).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

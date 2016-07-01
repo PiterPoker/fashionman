@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Dick.Models.Entities.ClothingPattern>
+
+@{
+    ViewBag.Title = "LoadClothingPatterns";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Каталог моделей</h2>
+
+<div class="col-md-offset-10 col-md-2">
+    @Html.ActionLink("Каталог", "Catalog", "Home", null, new { @class = "btn btn-danger" })
+</div>
+<br/>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="@Url.Action("GetClothingPatterImage", "Image", new {item.Id, @class = "img-rounded"})"/>
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <p>Код ткани: @Html.DisplayFor(modelItem => item.Code)</p>
+                    <p>Цена: @Html.DisplayFor(modelItem => item.Price) Br.</p>
+                    <p>
+                        @Html.ActionLink("Просмотреть", "DetailCloth", new {id = item.Id}, new {@class = "btn btn-primary"})
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<div>
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-xs-2">
+            @Html.ActionLink("Назад", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>

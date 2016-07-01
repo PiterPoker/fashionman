@@ -3,7 +3,7 @@ namespace Dick.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DataMigration : DbMigration
+    public partial class DateMigration : DbMigration
     {
         public override void Up()
         {
@@ -12,26 +12,23 @@ namespace Dick.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Width = c.Double(nullable: false),
-                        Length = c.Double(nullable: false),
-                        Code = c.String(),
-                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Code = c.String(nullable: false),
                         Image = c.Binary(),
                         ImageType = c.String(),
-                        ClothingPattern_Id = c.Int(),
+                        Length = c.Double(nullable: false),
+                        Name = c.String(nullable: false),
+                        Price = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Width = c.Double(nullable: false),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.ClothingPatterns", t => t.ClothingPattern_Id)
-                .Index(t => t.ClothingPattern_Id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.ClothingPatterns",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Code = c.String(),
+                        Name = c.String(nullable: false),
+                        Code = c.String(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Image = c.Binary(),
                         ImageType = c.String(),
@@ -43,9 +40,9 @@ namespace Dick.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        MiddleName = c.String(),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
+                        MiddleName = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -157,7 +154,6 @@ namespace Dick.Migrations
             DropForeignKey("dbo.Orders", "CutterId", "dbo.Cutters");
             DropForeignKey("dbo.Orders", "ClothingPatternId", "dbo.ClothingPatterns");
             DropForeignKey("dbo.Orders", "ClothId", "dbo.Clothes");
-            DropForeignKey("dbo.Clothes", "ClothingPattern_Id", "dbo.ClothingPatterns");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -168,7 +164,6 @@ namespace Dick.Migrations
             DropIndex("dbo.Orders", new[] { "ClothingPatternId" });
             DropIndex("dbo.Orders", new[] { "ClothId" });
             DropIndex("dbo.Orders", new[] { "CutterId" });
-            DropIndex("dbo.Clothes", new[] { "ClothingPattern_Id" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
